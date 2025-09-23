@@ -1,0 +1,6 @@
+[submodule "gost-swtpm"]
+	path = gost-swtpm
+	url = https://github.com/IWillBurn/gost-swtpm.git
+[submodule "gost-libtpms"]
+	path = gost-libtpms
+	url = https://github.com/IWillBurn/gost-libtpms.git
