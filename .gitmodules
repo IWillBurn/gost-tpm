@@ -4,3 +4,9 @@
 [submodule "gost-libtpms"]
 	path = gost-libtpms
 	url = https://github.com/IWillBurn/gost-libtpms.git
+[submodule "openssl"]
+	path = openssl
+	url = https://github.com/openssl/openssl
+[submodule "gost-go-tpm"]
+	path = gost-go-tpm
+	url = https://github.com/IWillBurn/gost-go-tpm
