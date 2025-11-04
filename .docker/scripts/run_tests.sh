@@ -25,7 +25,7 @@ swtpm socket -d \
     --ctrl type=unixio,path=/tpm/socket/swtpm-socket.ctrl \
     --server type=unixio,path=/tpm/socket/swtpm-socket \
     --flags startup-clear \
-    --log level=20 > /var/log/swtpm_socket.log 2>&1 &
+    --log file=/var/log/swtpm_socket.log,level=20 &
 sleep 5
 echo "[INFO]: Swtpm started!"
 
@@ -35,4 +35,3 @@ echo "[INFO]: Selftest swtpm is complete!"
 
 echo "[INFO]: Starting tests..."
 /tests/go-tests -test.v
-echo "[INFO]: Tests complete!"

@@ -6,6 +6,6 @@ BUILD_DIR = build
 all: build
 
 build-tests:
-	GOOS=$(GOOS) GOARCH=$(GOARCH) go test -c -o $(BUILD_DIR)/$(BINARY_NAME) ./tests/constants.go ./tests/fake_hashing_test.go ./tests/has_algs_test.go
+	GOOS=$(GOOS) GOARCH=$(GOARCH) go test -c -o $(BUILD_DIR)/$(BINARY_NAME) ./tests/constants.go ./tests/hash_test.go ./tests/has_algs_test.go ./tests/marshaling_test.go
 
 .PHONY: all build
