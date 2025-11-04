@@ -1,12 +1,12 @@
 [submodule "gost-swtpm"]
 	path = gost-swtpm
-	url = https://github.com/IWillBurn/gost-swtpm.git
+	url = https://github.com/IWillBurn/gost-swtpm
 [submodule "gost-libtpms"]
 	path = gost-libtpms
-	url = https://github.com/IWillBurn/gost-libtpms.git
-[submodule "openssl"]
-	path = openssl
-	url = https://github.com/openssl/openssl
+	url = https://github.com/IWillBurn/gost-libtpms
 [submodule "gost-go-tpm"]
 	path = gost-go-tpm
 	url = https://github.com/IWillBurn/gost-go-tpm
+[submodule "gost-engine"]
+	path = gost-engine
+	url = https://github.com/gost-engine/engine
