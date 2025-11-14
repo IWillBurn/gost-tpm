@@ -1,5 +1,7 @@
-github.com/IWillBurn/gost-go-tpm v0.0.0-20251022160645-89a6a143c238 h1:+WkeJ/b9NWRnbx55u4kQf6diUAjFowtm7Kiz7E26ydk=
-github.com/IWillBurn/gost-go-tpm v0.0.0-20251022160645-89a6a143c238/go.mod h1:LTn8X2JHfEWlJSGUTeXt3yneb2y3HOHI1QHqdiwOfsA=
+github.com/IWillBurn/gost-go-tpm v0.0.0-20251023093402-8fa81dd4f4b8 h1:rsDW6Z65PPKHTgF8zEehZN85HljAsZQlGqyTuVAFgIE=
+github.com/IWillBurn/gost-go-tpm v0.0.0-20251023093402-8fa81dd4f4b8/go.mod h1:LTn8X2JHfEWlJSGUTeXt3yneb2y3HOHI1QHqdiwOfsA=
+github.com/IWillBurn/gost-go-tpm v0.0.0-20251112082828-32c35179504f h1:Qi0b76g+BBZh9YeJB6Mrbb2+UJtTI0lCk/46G9q0gaE=
+github.com/IWillBurn/gost-go-tpm v0.0.0-20251112082828-32c35179504f/go.mod h1:LTn8X2JHfEWlJSGUTeXt3yneb2y3HOHI1QHqdiwOfsA=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
