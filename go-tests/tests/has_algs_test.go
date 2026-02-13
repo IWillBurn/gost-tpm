@@ -36,6 +36,14 @@ func Test_HasAlgs(t *testing.T) {
 			name: "grasshopper",
 			alg:  tpm2.AlgGrasshopper,
 		},
+		{
+			name: "gost3410_256",
+			alg:  tpm2.AlgGOST3410_256,
+		},
+		{
+			name: "gost3410_512",
+			alg:  tpm2.AlgGOST3410_512,
+		},
 	}
 
 	for _, testCase := range testCases {

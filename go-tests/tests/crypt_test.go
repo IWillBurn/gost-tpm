@@ -80,7 +80,7 @@ func Test_CryptDecrypt(t *testing.T) {
 			require.NoError(t, err)
 			defer tpm2.FlushContext(rwc, primary)
 
-			private, public, err := GenerateKey(rwc, testCase.alg, testCase.mod, testCase.keySize, primary)
+			private, public, err := GenerateSymmetricKey(rwc, testCase.alg, testCase.mod, testCase.keySize, primary)
 			require.NoError(t, err)
 
 			iv, err := generateIV(testCase.ivSize)
@@ -132,7 +132,7 @@ func CreatePrimaryKey(rwc io.ReadWriteCloser) (tpmutil.Handle, error) {
 	return primaryHandle, err
 }
 
-func GenerateKey(rwc io.ReadWriteCloser, alg tpm2.Algorithm, mod tpm2.Algorithm, keySize uint16, primary tpmutil.Handle) ([]byte, []byte, error) {
+func GenerateSymmetricKey(rwc io.ReadWriteCloser, alg tpm2.Algorithm, mod tpm2.Algorithm, keySize uint16, primary tpmutil.Handle) ([]byte, []byte, error) {
 	template := tpm2.Public{
 		Type:    tpm2.AlgSymCipher,
 		NameAlg: tpm2.AlgSHA256,

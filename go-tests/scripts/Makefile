@@ -7,10 +7,12 @@ all: build
 
 build-tests:
 	GOOS=$(GOOS) GOARCH=$(GOARCH) go test -c -o $(BUILD_DIR)/$(BINARY_NAME) \
+		./tests/crypto_utils.go \
 		./tests/constants.go \
 		./tests/hash_test.go \
 		./tests/has_algs_test.go \
 		./tests/marshaling_test.go \
 		./tests/crypt_test.go \
+		./tests/sign_test.go \
 
 .PHONY: all build
