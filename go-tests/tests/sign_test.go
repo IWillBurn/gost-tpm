@@ -158,7 +158,6 @@ func loadGOST3410SigningKey(
 	priv tpm2.TPM2BPrivate,
 	pub tpm2.TPM2BPublic,
 ) (tpm2.TPMHandle, tpm2.TPM2BName, error) {
-
 	rsp, err := tpm2.Load{
 		ParentHandle: tpm2.AuthHandle{
 			Handle: parentHanle,
@@ -180,7 +179,6 @@ func signGOST3410(
 	hash tpm2.TPMAlgID,
 	digest []byte,
 ) (tpm2.TPMTSignature, error) {
-
 	rsp, err := tpm2.Sign{
 		KeyHandle: tpm2.AuthHandle{
 			Handle: keyHandle,
@@ -210,7 +208,6 @@ func verifySignatureByHandle(
 	digest []byte,
 	sig tpm2.TPMTSignature,
 ) error {
-
 	_, err := tpm2.VerifySignature{
 		KeyHandle: tpm2.NamedHandle{Handle: keyHandle, Name: keyHandleName},
 		Digest:    tpm2.TPM2BDigest{Buffer: digest},

@@ -1,27 +1,23 @@
 package testing
 
 import (
-	"fmt"
-	"io"
-
 	"testing"
 
+	"github.com/IWillBurn/gost-go-tpm/tpm2"
+	"github.com/IWillBurn/gost-go-tpm/tpm2/transport"
 	"github.com/stretchr/testify/require"
-
-	"github.com/IWillBurn/gost-go-tpm/legacy/tpm2"
-	"github.com/IWillBurn/gost-go-tpm/tpmutil"
 )
 
 func Test_Hash(t *testing.T) {
-
-	rwc, err := tpm2.OpenTPM(tpmPath)
+	tpm, err := transport.OpenTPM(tpmPath)
 	require.NoError(t, err)
+	defer tpm.Close()
 
 	testCases := []struct {
 		name string
 		text []byte
 		hash []byte
-		alg  tpm2.Algorithm
+		alg  tpm2.TPMAlgID
 	}{
 		{
 			name: "M1 from RFC 6986 (10.1.1) and GOST R 34.11-2012 (А.1.1)",
@@ -45,7 +41,7 @@ func Test_Hash(t *testing.T) {
 				0xe2, 0xa4, 0x81, 0x33, 0x2b, 0x08, 0xef, 0x7f,
 				0x41, 0x79, 0x78, 0x91, 0xc1, 0x64, 0x6f, 0x48,
 			},
-			alg: tpm2.AlgGOST3411_512,
+			alg: tpm2.TPMAlgGOST3411512,
 		},
 		{
 			name: "M1 from RFC 6986 (10.1.1) and GOST R 34.11-2012 (А.1.2)",
@@ -65,7 +61,7 @@ func Test_Hash(t *testing.T) {
 				0x5d, 0xd0, 0x51, 0x02, 0x6b, 0xb1, 0x49, 0xa4,
 				0x52, 0xfd, 0x84, 0xe5, 0xe5, 0x7b, 0x55, 0x00,
 			},
-			alg: tpm2.AlgGOST3411_256,
+			alg: tpm2.TPMAlgGOST3411256,
 		},
 		{
 			name: "M1 from RFC 6986 (10.1.1) and GOST R 34.11-2012 (А.2.1)",
@@ -90,7 +86,7 @@ func Test_Hash(t *testing.T) {
 				0x3f, 0x0c, 0xb9, 0xdd, 0xdc, 0x2b, 0x64, 0x60,
 				0x14, 0x3b, 0x03, 0xda, 0xba, 0xc9, 0xfb, 0x28,
 			},
-			alg: tpm2.AlgGOST3411_512,
+			alg: tpm2.TPMAlgGOST3411512,
 		},
 		{
 			name: "M1 from RFC 6986 (10.1.1) and GOST R 34.11-2012 (А.2.2)",
@@ -111,28 +107,15 @@ func Test_Hash(t *testing.T) {
 				0xc0, 0xca, 0xc6, 0x28, 0xfc, 0x66, 0x9a, 0x74,
 				0x1d, 0x50, 0x06, 0x3c, 0x55, 0x7e, 0x8f, 0x50,
 			},
-			alg: tpm2.AlgGOST3411_256,
+			alg: tpm2.TPMAlgGOST3411256,
 		},
 	}
 
 	for _, testCase := range testCases {
 		t.Run(testCase.name, func(t *testing.T) {
-			digets, err := hashWithTPM(rwc, []byte(testCase.text), testCase.alg)
+			digest, err := hashWithTPM(tpm, testCase.text, testCase.alg)
 			require.NoError(t, err)
-
-			require.Equal(t, []byte(testCase.hash), digets)
+			require.Equal(t, testCase.hash, digest)
 		})
 	}
-}
-
-func hashWithTPM(rwc io.ReadWriteCloser, data []byte, alg tpm2.Algorithm) ([]byte, error) {
-	buf := tpmutil.U16Bytes(data)
-	hierarchy := tpmutil.Handle(tpm2.HandleOwner)
-
-	digest, _, err := tpm2.Hash(rwc, alg, buf, hierarchy)
-	if err != nil {
-		return nil, fmt.Errorf("Hashing failed: %v", err)
-	}
-
-	return digest, nil
 }

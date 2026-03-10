@@ -18,6 +18,8 @@ github.com/IWillBurn/gost-go-tpm v0.0.0-20260212201542-ab47996808ef h1:z8VLQdhH4
 github.com/IWillBurn/gost-go-tpm v0.0.0-20260212201542-ab47996808ef/go.mod h1:LTn8X2JHfEWlJSGUTeXt3yneb2y3HOHI1QHqdiwOfsA=
 github.com/IWillBurn/gost-go-tpm v0.0.0-20260213112025-5e5fd580d7df h1:qtiATDD+FYiHg4mZeq7DjexpRVf2GPecmyZzLl3MNSI=
 github.com/IWillBurn/gost-go-tpm v0.0.0-20260213112025-5e5fd580d7df/go.mod h1:LTn8X2JHfEWlJSGUTeXt3yneb2y3HOHI1QHqdiwOfsA=
+github.com/IWillBurn/gost-go-tpm v0.0.0-20260310101824-b3664429743c h1:3HGdgXVs9mc9WkrlstA31tqSgEja20Ew3rf0PuRJVfY=
+github.com/IWillBurn/gost-go-tpm v0.0.0-20260310101824-b3664429743c/go.mod h1:LTn8X2JHfEWlJSGUTeXt3yneb2y3HOHI1QHqdiwOfsA=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/google/go-tpm v0.9.8 h1:slArAR9Ft+1ybZu0lBwpSmpwhRXaa85hWtMinMyRAWo=
